@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <form method="GET">
+        <label for="searched-url">
+            Please enter the URL you want to search
+        </label>
+        <input placeholder="https://www.bitly.com/ABCD12" type="text" name="searched-url">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if error %}
+        <p style="color: red">{{ error }}</p>
+    {% endif %}
+
+    {% if retrieved_url %}
+        <div>
+            <h3>URL Details for {{ searched_url }}</h3>
+            <ul>
+                {% for key, value in retrieved_url.items %}
+                    {% if value %}
+                        <li><b>{{ key }}:</b> {{ value }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+{% endblock %}

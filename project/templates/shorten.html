@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+    {% if error %}
+        <p style="color: red">Submitted url is not valid <i> ({{ provided_url }}) </i></p>
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        <label for="provided-url">
+            Please enter the url you want to shorten
+        </label>
+        <input placeholder="https://www.example.com" type="text" name="provided-url" value="{{ provided_url }}">
+        <button type="submit">Shorten</button>
+    </form>
+
+    {% if shortened_url %}
+        <p>Given url <i>{{ provided_url }}</i> is shortened: {{ shortened_url }}</p>
+        <p>You can utilize the search to verify it <a style="cursor: pointer; color:blue" href="/search?searched-url={{ quoted_shortened_url }}">{{ shortened_url }}</a></p>
+    {% endif %}
+
+{% endblock %}
