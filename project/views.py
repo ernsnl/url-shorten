@@ -22,11 +22,12 @@ def generate_random_characters(length=SHORTEN_LENGTH):
 def url_shorten(request):
     template_args = {}
     if request.method == 'POST':
-        # Validate the provided url 
         provided_url = request.POST.get('provided-url')
         is_valid = validators.url(provided_url)
         if isinstance(is_valid, validators.ValidationFailure):
             # Given url is not valid inform the user
+            # Validation can be improved the give additional details of why this url is not valid
+            # Additionally, duplication (in search) from the valid url can be combined to a helper function
             template_args = {
                 'error': True,
                 'provided_url': provided_url,

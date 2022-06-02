@@ -3,6 +3,8 @@ from urllib.parse import urlparse
 
 
 class ShortenedURL(models.Model):
+    # We can include additional properties such creation date, expiration date or more 
+    # That way service itself can provide additional details
     shortened_identifier = models.TextField(max_length=200, primary_key=True, unique=True)
     original_url = models.TextField()
 

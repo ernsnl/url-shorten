@@ -23,5 +23,4 @@ urlpatterns = [
     path('', views.url_shorten),
     path('shorten/', views.url_shorten),
     path('search/', views.url_lookup),
-    path('search/<slug:identifier>', views.url_lookup),
 ]

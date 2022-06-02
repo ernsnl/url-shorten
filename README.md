@@ -1,6 +1,6 @@
 # url-shorten
 
-This is a basic url shortener web service. To correctly install the necessary interaction, please run the following command. This project assumes that you already installed python 3 in your local machine. If not, please follow the instructions for installing python3 by visiting [here](https://www.python.org/downloads/)
+This is a basic url shortener web service and it has been implemented within 2 hours. To correctly install the necessary interaction, please run the following command. This project assumes that you already installed python 3 in your local machine. If not, please follow the instructions for installing python3 by visiting [here](https://www.python.org/downloads/)
 
 ```
 pip install -r project/requirements.txt
