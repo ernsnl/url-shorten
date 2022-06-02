@@ -57,7 +57,7 @@ def url_lookup(request):
         template_args['searched_url'] = searched_url
         is_valid = validators.url(searched_url)
         if isinstance(is_valid, validators.ValidationFailure):
-            template_args['error'] = 'Searched URL is not valid'
+            template_args['error'] = f'Searched URL {searched_url} is not valid'
         else:
             parsed_url_info = urlparse(searched_url)
             try:
@@ -65,6 +65,6 @@ def url_lookup(request):
                 retrieved_url = ShortenedURL.objects.get(shortened_identifier=short_identifier_for_url)
                 template_args['retrieved_url'] = retrieved_url.get_details()
             except ShortenedURL.DoesNotExist:
-                template_args['error'] = 'There is no matching url'
+                template_args['error'] = f'There is no matching url for {searched_url}'
 
     return render(request, 'search.html', template_args)
